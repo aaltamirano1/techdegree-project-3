@@ -18,7 +18,7 @@ function validateName(e){
 }
 
 var re = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-// email must be properly formatted, checks while you type.
+// email must be properly formatted, checks while you type; real-time validation.
 function validatingEmail(){
 	$(".no-email").remove();
 	var validEmail = re.test($email.val());
@@ -102,6 +102,7 @@ function onlyChooseOne(timeslot){
 
 function changeActivities(){
 	$("#total").remove();
+	$(".no-activities").remove();
 	var nineToTwelve = [$activities[1], $activities[3], $activities[5]];
 	var oneToFour = [$activities[2], $activities[4], $activities[6]];
 	onlyChooseOne(nineToTwelve);
@@ -121,7 +122,7 @@ function changeActivities(){
 	$(".activities").append( "<p id='total'>Total: $"+total+"</p>" );
 }
 
-// user must select at least one checkbox under the "Register for Activities" section of the form.
+// user must select at least one checkbox under the "Register for Activitiesections"  of the form.
 function validateActivities(e){
 	if ($(".activities input:checked").length===0){
 		e.preventDefault();
@@ -187,7 +188,8 @@ $(document).ready(function() {
 	// removes "no name" error message while you type.
 	$name.focus(()=>{
 		$(this).keypress(()=>{
-			$(".no-name").fadeOut().setTimeout(()=>$(".no-name").remove(), 4000);
+			$(".no-name").fadeOut();
+			setTimeout(()=>$(".no-name").remove(), 4000);
 		});
 	})
 	// displays and removes email error messages while you type.
@@ -199,7 +201,8 @@ $(document).ready(function() {
 	// removes credit card error messages while you type.
 	$("#credit-card input").focus(()=>{
 		$(this).keypress(()=>{
-			$(".cc-error").fadeOut().setTimeout(()=>$(".cc-error").remove(), 4000);
+			$(".cc-error").fadeOut();
+			setTimeout(()=>$(".cc-error").remove(), 4000);
 		});
 	})
 
