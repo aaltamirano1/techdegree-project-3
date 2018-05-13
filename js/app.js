@@ -103,8 +103,8 @@ function onlyChooseOne(timeslot){
 function changeActivities(){
 	$("#total").remove();
 	$(".no-activities").remove();
-	var nineToTwelve = [$activities[1], $activities[3], $activities[5]];
-	var oneToFour = [$activities[2], $activities[4], $activities[6]];
+	var nineToTwelve = [$activities[1], $activities[3]];
+	var oneToFour = [$activities[2], $activities[4]];
 	onlyChooseOne(nineToTwelve);
 	onlyChooseOne(oneToFour);
 
